@@ -1,19 +1,212 @@
+/* Base Styles */
 .agent-dashboard {
     padding: 20px;
-    font-family: 'Segoe UI', sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f4f4f4;
+    max-width: 1400px;
+    margin: 0 auto;
+    min-height: 100vh;
   }
   
+  /* Header Styles */
   .dashboard-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: #001f3f;
-    color: white;
-    padding: 20px;
+    color: rgb(108, 106, 222);
+    padding: 15px 25px;
     border-radius: 10px;
+    margin-bottom: 30px;
+  }
+
+  .agentheaderh1{
+    color: white;
   }
   
+  .dashboard-header h1 {
+    margin: 0;
+    font-size: 1.5rem;
+  }
+  
+  .header-actions {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+  
+  /* Notification Styles */
+  .notif-wrap {
+    position: relative;
+  }
+  
+  .notif-icon {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 5px;
+    color: white;
+    position: relative;
+  }
+  
+  .notif-icon.has-notifications::after {
+    content: '';
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    width: 8px;
+    height: 8px;
+    background: #e74c3c;
+    border-radius: 50%;
+    border: 2px solid #001f3f;
+  }
+  
+  .notif-dropdown {
+    position: absolute;
+    right: 0;
+    top: 50px;
+    width: 300px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    padding: 0;
+    z-index: 1000;
+    transform-origin: top right;
+    animation: scaleIn 0.15s ease-out;
+    border: 1px solid #e1e4e8;
+    overflow: hidden;
+  }
+  
+  .notif-header {
+    padding: 15px;
+    background: #f8f9fa;
+    border-bottom: 1px solid #e1e4e8;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .notif-header span {
+    font-size: 0.9rem;
+    color: #666;
+  }
+  
+  .notif-item {
+    padding: 12px 15px;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 0.9rem;
+    transition: background 0.2s;
+  }
+  
+  .notif-item:last-child {
+    border-bottom: none;
+  }
+  
+  .notif-item:hover {
+    background: #f8f9fa;
+  }
+  
+  .notif-item.admin {
+    border-left: 3px solid #1a73e8;
+    padding-left: 12px;
+  }
+  
+  .notif-item.client {
+    border-left: 3px solid #8a2be2;
+    padding-left: 12px;
+  }
+  
+  /* Avatar Styles */
+  .avatar-wrap {
+    position: relative;
+    cursor: pointer;
+  }
+  
+  .avatar {
+    border-radius: 50%;
+    border: 2px solid #fff;
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+  }
+  
+  .user-dropdown {
+    position: absolute;
+    right: 0;
+    top: 50px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    padding: 0;
+    width: 200px;
+    z-index: 1000;
+    transform-origin: top right;
+    animation: scaleIn 0.15s ease-out;
+    border: 1px solid #e1e4e8;
+    overflow: hidden;
+  }
+  
+  .user-info {
+    padding: 15px;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  
+  .user-info p {
+    margin: 0;
+    font-weight: 600;
+  }
+  
+  .user-info small {
+    color: #666;
+    font-size: 0.8rem;
+    display: block;
+    margin-top: 3px;
+  }
+  
+  .user-dropdown button {
+    width: 100%;
+    padding: 12px 15px;
+    background: none;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    transition: background 0.2s;
+    color: #333;
+    font-size: 0.9rem;
+  }
+  
+  .user-dropdown button:hover {
+    background: #f8f9fa;
+  }
+  
+  .user-dropdown button.logout {
+    color: #e74c3c;
+  }
+  
+  /* Metrics Control */
+  .metrics-control {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .metrics-control label {
+    font-weight: 600;
+    color: #333;
+  }
+  
+  .metrics-control select {
+    padding: 8px 12px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    background-color: white;
+    font-size: 1rem;
+  }
+  
+  /* Metrics Cards */
   .metrics {
     display: flex;
     gap: 15px;
@@ -28,42 +221,63 @@
     flex: 1;
     min-width: 180px;
     border-radius: 10px;
-    box-shadow: 0 0 10px #ddd;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    transition: transform 0.2s, box-shadow 0.2s;
   }
   
+  .card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+  
+  .card h3 {
+    margin: 0 0 10px 0;
+    font-size: 1rem;
+    color: #666;
+    font-weight: 600;
+  }
+  
+  .card p {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #333;
+  }
+  
+  /* Charts Section */
   .charts {
     display: flex;
     gap: 20px;
     flex-wrap: wrap;
+    margin: 30px 0;
   }
   
   .chart-box {
     background: white;
-    padding: 15px;
+    padding: 20px;
     flex: 1;
     min-width: 300px;
     border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
   }
   
+  /* Map Section */
   .map-container {
     background: white;
     margin-top: 30px;
     padding: 20px;
     border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
   }
   
-  .map-placeholder {
-    background: #eee;
-    height: 200px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-style: italic;
-    color: #888;
+  .map-container h2 {
+    margin: 0 0 15px 0;
+    font-size: 1.25rem;
   }
   
+  /* Export Button */
   .export-btn {
-    margin-top: 20px;
+    margin-top: 30px;
   }
   
   .btn {
@@ -73,5 +287,171 @@
     padding: 10px 20px;
     border-radius: 6px;
     text-decoration: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.2s;
   }
   
+  .btn:hover {
+    background: #003366;
+  }
+  
+  /* Animations */
+  @keyframes scaleIn {
+    from {
+      transform: scale(0.95);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .metrics {
+      grid-template-columns: 1fr 1fr;
+    }
+    
+    .dashboard-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 15px;
+    }
+    
+    .header-actions {
+      width: 100%;
+      justify-content: space-between;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .card {
+      min-width: 100%;
+    }
+    
+    .notif-dropdown {
+      width: 280px;
+    }
+  }
+
+  /* Add these styles to your existing agent.css */
+
+/* Loyalty Points Styles */
+.loyalty-section {
+    padding: 15px;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  
+  .loyalty-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .loyalty-header h4 {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #333;
+    font-weight: 600;
+  }
+  
+  .loyalty-points {
+    font-weight: 700;
+    color: #ff6b00;
+    font-size: 0.9rem;
+  }
+  
+  .gem-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+  
+  .gem {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    cursor: pointer;
+    transition: transform 0.2s;
+    position: relative;
+  }
+  
+  .gem:hover {
+    transform: scale(1.2);
+  }
+  
+  .gem::after {
+    content: attr(data-points);
+    position: absolute;
+    bottom: -20px;
+    font-size: 10px;
+    color: #666;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .gem.bronze {
+    background-color: #cd7f32;
+    color: white;
+  }
+  
+  .gem.silver {
+    background-color: #c0c0c0;
+    color: #333;
+  }
+  
+  .gem.gold {
+    background-color: #ffd700;
+    color: #333;
+  }
+  
+  .gem.platinum {
+    background-color: #e5e4e2;
+    color: #333;
+  }
+  
+  .gem.diamond {
+    background-color: #b9f2ff;
+    color: #333;
+  }
+  
+  /* Add this to make the dropdown slightly taller */
+  .user-dropdown {
+    width: 240px; /* Increased from 200px */
+  }
+
+  /* Wallet Connection Styles */
+.wallet-address {
+    display: block;
+    margin-top: 5px;
+    font-family: monospace;
+    color: #666;
+    background: #f0f0f0;
+    padding: 2px 5px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+  }
+  
+  .connect-warning {
+    color: #e74c3c;
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+  
+  /* Gem State Styles */
+  .gem.locked {
+    opacity: 0.5;
+    filter: grayscale(80%);
+  }
+  
+  .gem.unlocked {
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+  }

@@ -1,0 +1,106 @@
+/* src/styles/agentheader.css */
+.agent-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 25px;
+    background-color: #001f3f;
+    color: white;
+    border-radius: 12px 12px 0 0;
+    position: relative;
+  }
+  
+  .agent-header .title {
+    font-size: 20px;
+    font-weight: 600;
+  }
+  
+  .actions {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    position: relative;
+  }
+  
+  .avatar-wrap {
+    position: relative;
+    cursor: pointer;
+  }
+  
+  .avatar {
+    border-radius: 50%;
+    border: 2px solid white;
+    width: 36px;
+    height: 36px;
+  }
+  
+  .user-dropdown {
+    position: absolute;
+    top: 45px;
+    right: 0;
+    background: white;
+    color: #333;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+    min-width: 150px;
+    z-index: 10;
+  }
+  
+  .user-dropdown p {
+    margin: 0 0 10px;
+    font-weight: 500;
+  }
+  
+  .user-dropdown button {
+    background: #001f3f;
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .notif-wrap {
+    position: relative;
+  }
+  
+  .notif-icon {
+    background: none;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+    color: white;
+  }
+  
+  .notif-dropdown {
+    position: absolute;
+    top: 30px;
+    right: 0;
+    background: white;
+    color: #333;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+    width: 250px;
+    z-index: 10;
+  }
+  
+  .notif-item {
+    font-size: 13px;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .notif-item:last-child {
+    border-bottom: none;
+  }
+  
+  .notif-item.admin {
+    color: #1e88e5;
+  }
+  
+  .notif-item.client {
+    color: #2ecc71;
+  }
+  

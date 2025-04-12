@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./login.css";
+import logo from "../images/A plus-02.jpg"
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -56,7 +57,7 @@ export default function Login() {
     <div className="login-container">
       <div className="login-box">
         <div className="logo-section">
-          <img src="/A plus-02.avif" alt="Logo" className="logo" />
+          <img src={logo} alt="Logo" className="logo" />
           <h2>A Plus EVC Login</h2>
         </div>
         <form onSubmit={handleLogin} className="login-form">
