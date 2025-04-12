@@ -1,0 +1,21 @@
+.charts {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .chart-box {
+    background-color: white;
+    padding: 20px;
+    flex: 1;
+    min-width: 300px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .chart-box h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
