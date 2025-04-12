@@ -1,27 +1,27 @@
 import { useState } from "react";
 import Charts from "./Charts";
-import LocationMap from "./LocationMap";
+import LocationMap from "./LocationMap";  // Import the new map component
 import ExportCSV from "./ExportCSV";
 import "./agent.css";
 
-const months = ["Quater 1", "Quater 2", "Quater 3"];
+const months = ["Jan 2024", "Feb 2024", "Mar 2024"];
 
 const dummyData = {
-  "Quater 1": {
+  "Jan 2024": {
     profit: 80,
     margin: 25,
     cars: 200,
     citations: 94,
     topProducts: ["Alpha", "Zeta", "Kappa", "Pi", "Chi"]
   },
-  "Quater 2": {
+  "Feb 2024": {
     profit: 70,
     margin: 22,
     cars: 180,
     citations: 90,
     topProducts: ["Zeta", "Chi", "Alpha", "Omega", "Beta"]
   },
-  "Quater 3": {
+  "Mar 2024": {
     profit: 88,
     margin: 28,
     cars: 220,
@@ -32,7 +32,6 @@ const dummyData = {
 
 export default function AgentDashboard() {
   const [selectedMonth, setSelectedMonth] = useState("Jan 2024");
-
   const data = dummyData[selectedMonth];
 
   const csvData = [
@@ -61,7 +60,8 @@ export default function AgentDashboard() {
 
       <Charts profit={data.profit} citations={data.citations} margin={data.margin} />
 
-      <LocationMap />
+      {/* Include the LocationMap component here */}
+      <LocationMap />  {/* The map will display below metrics and charts */}
 
       <ExportCSV data={csvData} filename={`Agent_Metrics_${selectedMonth}.csv`} />
     </div>
