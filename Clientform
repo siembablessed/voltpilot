@@ -1,0 +1,139 @@
+import React, { useState } from 'react';
+
+function AgentInputForm() {
+  const [formData, setFormData] = useState({
+    businessName: '',
+    businessType: '',
+    parkingLotSize: '',
+    safetyOfArea: '',
+    averageEvs: '',
+    averageCustomers: '',
+    averageDailyEnergyCost: '',
+    averageTimeSpent: '',
+  });
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    // In a real application, you would send this data to a server
+    console.log('Form Data:', formData);
+    alert('Form data submitted! (Check console for data)');
+    // You would likely use a fetch or axios call here to send 'formData'
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <div>
+        <label htmlFor="businessName">Business Name:</label>
+        <input
+          type="text"
+          id="businessName"
+          name="businessName"
+          value={formData.businessName}
+          onChange={handleChange}
+          required
+        />
+      </div>
+
+      <div>
+        <label htmlFor="businessType">Type of Business:</label>
+        <select
+          id="businessType"
+          name="businessType"
+          value={formData.businessType}
+          onChange={handleChange}
+          required
+        >
+          <option value="">Select Type</option>
+          <option value="restaurant">Restaurant</option>
+          <option value="park">Park</option>
+          <option value="hospital">Hospital</option>
+          <option value="gym">Gym</option>
+          <option value="school">School</option>
+          <option value="church">Church</option>
+          <option value="mall">Mall</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+
+      <div>
+        <label htmlFor="parkingLotSize">Parking Lot Size:</label>
+        <input
+          type="number"
+          id="parkingLotSize"
+          name="parkingLotSize"
+          value={formData.parkingLotSize}
+          onChange={handleChange}
+        />
+      </div>
+
+      <div>
+        <label htmlFor="safetyOfArea">Safety of Area:</label>
+        <input
+          type="text"
+          id="safetyOfArea"
+          name="safetyOfArea"
+          value={formData.safetyOfArea}
+          onChange={handleChange}
+        />
+      </div>
+
+      <div>
+        <label htmlFor="averageEvs">Average EVs Passing/Using Spots:</label>
+        <input
+          type="number"
+          id="averageEvs"
+          name="averageEvs"
+          value={formData.averageEvs}
+          onChange={handleChange}
+        />
+      </div>
+
+      <div>
+        <label htmlFor="averageCustomers">Average Customers:</label>
+        <input
+          type="number"
+          id="averageCustomers"
+          name="averageCustomers"
+          value={formData.averageCustomers}
+          onChange={handleChange}
+          required
+        />
+      </div>
+
+      <div>
+        <label htmlFor="averageDailyEnergyCost">Average Daily Energy Cost:</label>
+        <input
+          type="number"
+          id="averageDailyEnergyCost"
+          name="averageDailyEnergyCost"
+          value={formData.averageDailyEnergyCost}
+          onChange={handleChange}
+        />
+      </div>
+
+      <div>
+        <label htmlFor="averageTimeSpent">Average Time Clients Spend (hours):</label>
+        <input
+          type="number"
+          step="0.5" // Allow half-hour increments
+          id="averageTimeSpent"
+          name="averageTimeSpent"
+          value={formData.averageTimeSpent}
+          onChange={handleChange}
+        />
+      </div>
+
+      <button type="submit">Submit</button>
+    </form>
+  );
+}
+
+export default AgentInputForm;
